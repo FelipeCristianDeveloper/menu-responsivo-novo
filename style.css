@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.header{
+    width: 100vw;
+    position: fixed;
+    margin: 0 auto;
+}
+
+.navbar{
+    width: 80%;
+    height: 70px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(49,51,99,1) 100%);
+    margin: 10px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 3px 3px 5px black;
+}
+
+.nav-list-item{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-list-item a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px 5px 0;
+    position: relative;
+    font-size: 15pt;
+    letter-spacing: 1px;
+}
+
+.nav-list-item a::before{
+    content: " ";
+    width: 0;
+    height: 3px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(153,0,104,1) 50%, rgb(20, 21, 65) 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: .3s ease-in-out;
+}
+
+.nav-list-item a:hover::before{
+    width: 100%;
+}
+
+#btn-hamburger{
+    display: none;
+}
+
+@media (max-width: 768px){
+
+   
+
+    .navbar{
+        width: 100%;
+        margin-top: 0;
+        border-radius: 0;
+        box-shadow: none;
+        position: relative;
+    }
+
+    #btn-hamburger{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 5px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        padding: 5px;
+        
+    }
+
+    #btn-hamburger span{
+        width: 30px;
+        height: 2px;
+        background: white;
+        transition: all .3s;
+    }
+
+    #btn-hamburger.active span:nth-child(2){
+        opacity: 0;
+        width: 0;
+    }
+
+    #btn-hamburger.active span:nth-child(1){
+        transform: rotate(-45deg) translate(-4px, 4px);
+    }
+
+    #btn-hamburger.active span:nth-child(3){
+        transform: rotate(45deg) translate(-5px, -5px);
+    }
+
+    .nav-list-item{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 200px;
+        height: 100vh;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(20, 21, 65) 100%);
+        width: 50vh;
+        position: absolute;
+        top: 70px;
+        right: -750px;
+        transition: .3s ease-in-out;
+        opacity: 0;
+        padding-bottom: 70px;
+    }
+
+    .nav-list-item.active{
+        right: 0;
+        width: 50%;
+        opacity: 1;
+    }
+}
